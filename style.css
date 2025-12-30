@@ -1,0 +1,243 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+    color: white;
+}
+
+
+.container{
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+h1{
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+
+}
+.ok{
+    background: #00c6ff;    
+    padding: 12px 22px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 10px auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #003344;
+}
+
+
+#x,#y{
+    position: absolute;
+    top: 110px;
+    width: 30%;
+    text-align: center;
+    
+}
+
+
+#x{
+    left: 0;
+}
+
+
+#y{
+    right: 0;
+}
+
+
+#x img {
+    height: 58vh;
+    margin-top: 25px;
+    opacity: 0.9;
+    
+}
+
+#y img {
+    height: 55vh;
+    margin-top: 28px;
+    opacity: 0.9; 
+}
+
+
+
+
+
+.board{
+    margin-top: 120px;
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 5px;
+}
+
+
+.cell{
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    
+}
+
+.cell:hover{
+    background: rgba(255,255,255,0.25);
+}
+
+
+#restrtbutton{
+    margin-top: 20px;
+    padding: 10px 25px;
+    border:none;
+    border-radius: 25px;
+    background: #00c6ff;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#restrtbutton:hover{
+    background: #00f2fe;
+}
+
+
+.win{
+    margin-top: 15px;
+    font-size: 1.3rem;
+    color: #00e1ff;
+}
+
+#x img, #y img{
+    transition:
+        height .45s cubic-bezier(.22,.9,.32,1.1),
+        transform .45s ease,
+        filter .45s ease;
+}
+
+/* Active Player */
+.active{
+    height: 62vh !important;
+    transform: translateY(-10px);
+    filter: drop-shadow(0 12px 25px rgba(0,198,255,.55));
+}
+
+/* this is for my mobile  */
+@media (max-width:900px){
+
+    body, .container{
+        margin:0;
+        padding:0;
+        width:100%;
+        min-height:100vh;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    h1{
+        font-size:1.9rem;
+        margin:10px 0;
+        text-align:center;
+    }
+
+    /* Player images top-left and top-right - bigger */
+    #x, #y{
+        position:absolute;
+        top:70px; /* adjust vertical spacing from top */
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    #x{
+        left:10px;
+    }
+
+    #y{
+        right:10px;
+    }
+
+    #x img{
+        height:210px; /* bigger */
+    }
+
+         #y img{
+        height:200px; /* bigger */
+    }
+
+    .ok{
+        background:rgba(0,0,0,0.45);
+        color:#00e1ff;
+        font-size:0.9rem; /* slightly bigger */
+        padding:4px 10px;
+        border-radius:12px;
+        font-weight:600;
+        margin-top:4px;
+        text-align:center;
+    }
+
+    /* Board slightly smaller to fit */
+    .board{
+        margin-top:400px; /* leave space for bigger top images */
+        width:60vw;   /* slightly smaller */
+        height:60vw;  /* slightly smaller */
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        grid-template-rows:repeat(3,1fr);
+        gap:6px;
+    }
+
+    .cell{
+        font-size:1.7rem;
+        border-radius:12px;
+    }
+
+    #restrtbutton{
+        width:85%;
+        padding:10px;
+        font-size:1rem;
+        border-radius:25px;
+        margin:12px 0;
+    }
+
+  #x img, #y img{
+    transition:
+        height .45s cubic-bezier(.22,.9,.32,1.1),
+        transform .45s ease,
+        filter .45s ease;
+}
+
+/* Active Player */
+.active{
+    height: 30vh !important;
+    transform: translateY(-10px);
+    filter: drop-shadow(0 12px 25px rgba(0,198,255,.55));
+}
+
+    .win{
+        font-size:1rem;
+        margin:8px 0;
+        text-align:center;
+    }
+}
+
+
+
