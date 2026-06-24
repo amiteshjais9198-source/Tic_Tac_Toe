@@ -31,6 +31,7 @@ const printer=(event)=>{
 
      if(element.innerHTML !== "") return;   // Prevent overwriting
        totalturn++;
+    let hasWinner = false;
     if(turn==='O'){
         
           element.innerHTML="O";
@@ -39,6 +40,7 @@ const printer=(event)=>{
             document.getElementById('msg').innerHTML="Winner is O";
              // winner decide hone per ab event call nhi hoga
             board.removeEventListener('click',printer);
+            hasWinner = true;
           }
           turn="X";
         
@@ -52,12 +54,13 @@ const printer=(event)=>{
             document.getElementById('msg').innerHTML="Winner is X";
             // winner decide hone per ab event call nhi hoga
             board.removeEventListener('click',printer);
+            hasWinner = true;
           }
         turn="O";
          playerX.classList.remove("active");
          playerO.classList.add("active");
     }
-    if(totalturn===9){
+    if(totalturn===9 && !hasWinner){
          document.getElementById('msg').innerHTML="Draw";
     }
 }
